@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CodersFree')
+@section('title', 'SLTC')
 
 @section('content_header')
     <h1>Observaciones del curso: {{$course->title}}</h1>

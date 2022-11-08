@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CodersFree')
+@section('title', 'SLTC')
 
 @section('content_header')
     <h1>Cursos Pendientes de Aprobacion</h1>

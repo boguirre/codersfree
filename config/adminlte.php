@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>Coders</b>FREE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>SL</b>TC',
+    'logo_img' => 'vendor/adminlte/dist/img/logo SLTC.png',
+    'logo_img_class' => 'brand-image bg-white img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -278,6 +278,11 @@ return [
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-cogs',
+        ],
+        [
+            'text' => 'SubCategorias',
+            'route'  => 'admin.subcategories.index',
             'icon' => 'fas fa-fw fa-cogs',
         ],
         [

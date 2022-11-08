@@ -11,7 +11,12 @@ class category extends Model
     use HasFactory;
 
     //Relacion de uno a muchos
+
     public function courses(){
         return $this->hasMany('App\Models\Course');
+    }
+
+    public function subcategories(){
+        return $this->hasMany('App\Models\Subcategory');
     }
 }

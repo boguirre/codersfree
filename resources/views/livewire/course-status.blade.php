@@ -32,6 +32,17 @@
                         <p class="text-sm ml-2">Descargar Recurso</p>
                     </div>
                 @endif
+
+                @if ($this->advance > 99)
+                    <div class="flex items-center text-gray-600 cursor-pointer" wire:click="downloadcertificate">
+                        <i class="fa-solid fa-file-invoice text-lg"></i>
+                        {{-- <p class="text-sm ml-2">Descargar Certificado</p> --}}
+                        <a class="text-sm ml-2" href="{{route('courses.pdf', $course)}}">Descargar Certificado</a>
+                    </div>
+                @endif
+                    
+                
+                
             </div>
 
             <div class="card mt-2">

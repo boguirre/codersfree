@@ -34,10 +34,20 @@
     @enderror
 </div>
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-4 gap-4">
     <div>
         {!! Form::label('category_id', 'Categoria') !!}
-        {!! Form::select('category_id', $categories, null, ['class' => 'form-input block w-full mt-1']) !!}
+        {!! Form::select('category_id', $categories, null, ['class' => 'form-input block w-full mt-1', 'id' => 'category']) !!}
+    </div>
+    <div>
+        {!! Form::label('subcategory_id', 'SubCategoria') !!}
+        {{-- <select class="form-control" name="subcategory_id" id="subcategory">
+            <option value="" disabled selected>Selecccione una Subcategoria</option>
+            @foreach ($subcategories as $subcategory)
+            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+            @endforeach
+        </select> --}}
+        {!! Form::select('subcategory_id', $subcategories, null, ['class' => 'form-input block w-full mt-1', 'id'=> 'subcategory']) !!}
     </div>
     <div>
         {!! Form::label('level_id', 'Niveles') !!}

@@ -1,12 +1,26 @@
 @php
+    use App\Models\Course;
+    use App\Models\User;  
     $nav_links = [
         ['name'=>'Home', 'route'=> route('home'), 'active' => request()->routeIs('home')],
         ['name'=>'Cursos', 'route'=> route('courses.index'), 'active' => request()->routeIs('courses.*')],
-        
     ];
+
+    
+    // Esto evaluará a TRUE así que el texto se imprimirá.
+    if (isset(Auth::user()->id)) {
+        $user = User::find(auth()->user()->id);
+
+        // $course = $user->courses_enrolled->contains(auth()->user()->id);
+    }
+
+    // isset(auth()->user()->id){
+    //     $user = User::find(auth()->user()->id);
+    // }
+
 @endphp
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
+<nav x-data="{ open: false }" class="border-b border-gray-100 shadow" style="background-color: #cac719">
 
     <!-- Primary Navigation Menu -->
     <div class="container">
@@ -119,6 +133,12 @@
                                     Perfil
                                 </x-jet-dropdown-link>
 
+                                @if ($user->courses_enrolled->count())
+                                    <x-jet-dropdown-link href="{{route('mycourses.index')}}">
+                                        Mis cursos
+                                    </x-jet-dropdown-link>
+                                @endif
+
                                 @can('Ver dashboard')
                                 <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                     Administrador
@@ -130,6 +150,7 @@
                                     Instructor
                                 </x-jet-dropdown-link>
                                 @endcan
+                                
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -207,6 +228,12 @@
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         Perfil
                     </x-jet-responsive-nav-link>
+
+                    @if ($user->courses_enrolled->count())
+                        <x-jet-responsive-nav-link href="">
+                             Mis cursos
+                         </x-jet-responsive-nav-link>
+                    @endif
 
                     @can('Leer cursos')
                         <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">

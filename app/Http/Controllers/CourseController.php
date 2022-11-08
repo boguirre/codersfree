@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use BaconQrCode\Encoder\QrCode;
+use Carbon\Carbon;
 
 class CourseController extends Controller
 {
@@ -15,12 +17,14 @@ class CourseController extends Controller
 
         $this->authorize('published', $course);
 
-        $similares = Course::where('category_id', $course->category_id)
+        $similares = Course::where('subcategory_id', $course->subcategory_id)
+        ->where('category_id', $course->category_id)
         ->where('id', '!=', $course->id)
         ->where('status', 3)
         ->latest('id')
         ->take(5)    
         ->get();
+
 
         return view('courses.show', compact('course', 'similares'));
     }

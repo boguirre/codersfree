@@ -34,6 +34,11 @@
                             <td width="10px">
                                 <a href="{{route('admin.categories.edit', $category)}}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
+                            @if (count($category->subcategories))
+                            <td width="10px">
+                                <p>Categoria en Actividad</p>
+                            </td>
+                            @else
                             <td width="10px">
                                 <form action="{{route('admin.categories.destroy', $category)}}" method="POST">
                                     @csrf
@@ -42,6 +47,8 @@
                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
                             </td>
+                            @endif
+                           
                         </tr>
                     @endforeach
                 </tbody>

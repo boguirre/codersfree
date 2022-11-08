@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\level;
 use App\Models\Price;
-
+use App\Models\Subcategory;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -38,11 +38,14 @@ class CourseController extends Controller
     public function create()
     {
         $categories = category::pluck('name', 'id');
+        $subcategories = Subcategory::pluck('name', 'id');
         $levels = level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
 
-        return view('instructor.courses.create', compact('categories', 'levels', 'prices'));
+        return view('instructor.courses.create', compact('categories', 'levels', 'prices', 'subcategories'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -99,10 +102,11 @@ class CourseController extends Controller
         $this->authorize('dicatated', $course);
 
         $categories = category::pluck('name', 'id');
+        $subcategories = Subcategory::pluck('name', 'id');
         $levels = level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
 
-        return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices'));
+        return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices', 'subcategories'));
     }
 
     /**
@@ -176,5 +180,15 @@ class CourseController extends Controller
 
     public function observation(Course $course){
         return view('instructor.courses.observation', compact('course'));
+    }
+
+    public function getStates(Request $request)
+    {
+        $states = Subcategory::where('category_id', $request->category_id )
+            ->get();
+        
+        if (count($states) > 0) {
+            return response()->json($states);
+        }
     }
 }

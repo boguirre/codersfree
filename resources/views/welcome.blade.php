@@ -1,16 +1,19 @@
 <x-app-layout>
     
     {{-- Portada --}}
-    <section class="bg-cover" style="background-image: url({{asset('img/home/people-ge056781d6.jpg')}})">
+
+
+    <section class="bg-cover" style="background-image: url({{asset('img/cursos/diplomado.jpeg')}})">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36 ">
             <div class="w-full md:w-3/4 lg:w-1/2">
                 <h1 class="text-white font-fold text-4xl"> Reapertura: Cursos a tan solo 9.99 US$</h1>
-                <p class="text-white text-lg mt-2 mb-4">Coders Free se renueva. Aprovecha los mejores descuentos hasta el 31 de diciembre. Coders Free se renueva. Aprovecha los mejores descuentos hasta el 31 de diciembre.</p>
+                <p class="text-white text-lg mt-2 mb-4">SLTC se renueva. Aprovecha los mejores descuentos hasta el 31 de diciembre. SLTC se renueva. Aprovecha los mejores descuentos hasta el 31 de diciembre.</p>
 
                 @livewire('search')
             </div>
         </div>
     </section>
+
 
     <section class="mt-24">
         <h1 class="text-gray-600 text-center text-2xl mb-6">CONTENIDO</h1>
@@ -18,11 +21,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             <article>
                 <figure>
-                    <img class="rounded-xl h-36 w-full object-cover"  src="{{asset('img/home/galaxy-g16193c3e3_640.jpg')}}" alt="">
+                    <img class="rounded-xl h-36 w-full object-cover"  src="{{asset('img/cursos/img_1-stlc.jpeg')}}" alt="">
                 </figure>
 
                 <header class="mt-2">
-                    <h1 class="text-center text-xl text-gray-700">Cursos y proyectos</h1>
+                    <h1 class="text-center text-xl text-gray-700">Cursos y Certificados</h1>
                 </header>
 
                 <p class="text-sm text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero architecto neque excepturi nihil dolores hic eligendi vel voluptate nisi</p>
@@ -30,7 +33,7 @@
 
             <article>
                 <figure>
-                    <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/home/astronomy-g111fe1c38_640.jpg')}}" alt="">
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/cursos/img_2-stlc.jpeg')}}" alt="">
                 </figure>
 
                 <header class="mt-2">
@@ -42,11 +45,11 @@
 
             <article>
                 <figure>
-                    <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/home/stars-g7ba7c2e38_640.jpg')}}" alt="">
+                    <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/cursos/img_3-stlc.jpeg')}}" alt="">
                 </figure>
 
                 <header class="mt-2">
-                    <h1 class="text-center text-xl text-gray-700">Blog</h1>
+                    <h1 class="text-center text-xl text-gray-700">Diplomado</h1>
                 </header>
 
                 <p class="text-sm text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero architecto neque excepturi nihil dolores hic eligendi vel voluptate nisi</p>
@@ -54,11 +57,11 @@
 
             <article>
                 <figure>
-                    <img class="rounded-xl h-36 w-full object-cover " src="{{asset('img/home/galaxy-gf03bf2f2e_640.jpg')}}" alt="">
+                    <img class="rounded-xl h-36 w-full object-cover " src="{{asset('img/cursos/img_5-stlcs.jpeg')}}" alt="">
                 </figure>
 
                 <header class="mt-2">
-                    <h1 class="text-center text-xl text-gray-700">Desarrollo web</h1>
+                    <h1 class="text-center text-xl text-gray-700">Talleres</h1>
                 </header>
 
                 <p class="text-sm text-gray-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero architecto neque excepturi nihil dolores hic eligendi vel voluptate nisi</p>

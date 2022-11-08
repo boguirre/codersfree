@@ -5,8 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use PDF;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 
 class CourseStatus extends Component
 {
@@ -98,5 +103,31 @@ class CourseStatus extends Component
 
     public function download(){
         return response()->download(storage_path('app/' . $this->current->resource->url));
+    }
+
+    public function certificate(Course $course){
+
+        $courses = Course::where('id', $course->id)->get();
+
+        $user = User::where('id', auth()->user()->id)->get();
+        // view()->share('certificate.index');
+
+        // $pdf = PDF::loadView('certificate.index', compact('courses', 'user'));
+
+        return view('certificate.index', compact('user', 'courses'));
+        // return $pdf->download('certificado.pdf');
+    }
+
+    public function downloadcertificate(Course $course){
+
+        $courses = Course::where('id', $course->id)->get();
+
+        $user = User::where('id', auth()->user()->id)->get();
+        // view()->share('certificate.index');
+
+        $pdf = PDF::loadView('certificate.index', compact('courses', 'user', 'course'));
+
+        // return view('certificate.index', compact('user', 'courses'));
+        return $pdf->download('certificado.pdf');
     }
 }

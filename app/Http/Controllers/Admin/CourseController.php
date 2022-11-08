@@ -14,7 +14,7 @@ class CourseController extends Controller
 {
     public function index(){
 
-        $courses = Course::where('status', 2)->paginate(5);
+        $courses = Course::where('status', 2)->latest('id')->paginate(5);
 
         return view('admin.courses.index', compact('courses'));
     }
@@ -28,8 +28,20 @@ class CourseController extends Controller
     public function approved(Course $course){
 
         $this->authorize('revision', $course);
-        if (!$course->lessons || !$course->goals || !$course->requirements || !$course->image) {
-            return back()->with('info', 'No se puede publicar que no este completo');
+        if (!$course->image) {
+            return back()->with('info', 'No se puede publicar un curso que no este completo: Falta una immagen');
+        }
+
+        else if(count($course->lessons) == 0){
+            return back()->with('info', 'No se puede publicar un curso que no este completo: Falta lecciones');
+        }
+
+        else if(count($course->goals) == 0){
+            return back()->with('info', 'No se puede publicar un curso que no este completo: Falta objetivos');
+        }
+
+        else if(count($course->requirements) == 0){
+            return back()->with('info', 'No se puede publicar un curso que no este completo: Falta requerimientos');
         }
 
         $course->status = 3;

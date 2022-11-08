@@ -9,8 +9,9 @@
                 <h1 class="text-4xl">{{$course->title}}</h1>
                 <h2 class="text-xl mb-3">{{$course->subtitle}}</h2>
                 <p class="mb-2"><i class="fas fa-chart-line"></i> Nivel: {{$course->level->name}}</p>
-                <p class="mb-2"><i class=""></i> Categoria: {{$course->category->name}}</p>
-                <p class="mb-2"><i class="fas fa-users"></i> Matriculados: {{$course->students_count}}</p>
+                <p class="mb-2"><i class="fas fa-fw fa-cogs"></i> SubCategoria: {{$course->subcategory->name}}</p>
+                <p class="mb-2"><i class="fas fa-fw fa-cogs"></i> Categoria: {{$course->category->name}}</p>
+                {{-- <p class="mb-2"><i class="fas fa-users"></i> Matriculados: {{$course->students_count}}</p> --}}
                 <p class="mb-2"><i class="fas fa-star"></i> Calificacion: {{$course->rating}}</p>
             </div>
         </div>
@@ -24,7 +25,7 @@
 
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @foreach ($course->goals as $goal)
-                            <li class="text-gray-700 text-base"><i class="fas fa-check text-gray-600 mr-2"></i>{{$goal->name}}</li>
+                            <li class="text-gray-700 text-base"><i class="fa-regular fa-badge-check text-gray-600 mr-2"></i>{{$goal->name}}</li>
                         @endforeach
                     </ul>
                 </div>

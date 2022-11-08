@@ -24,10 +24,10 @@
                     <i class="fas fa-star text-{{$course->rating == 5 ? 'yellow' : 'gray'}}-400"></i>
                 </li>
             </ul>
-            <p class="text-sm text-gray-500 ml-auto">
+            {{-- <p class="text-sm text-gray-500 ml-auto">
                 <i class="fas fa-users"></i>
                 ({{$course->students_count}})
-            </p>
+            </p> --}}
         </div>
 
         @if ($course->price->value == 0)

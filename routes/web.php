@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
-
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\CourseStatus;
 
 /*
@@ -30,3 +30,11 @@ Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.
 Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
 
 Route::get('course-status/{course}', CourseStatus::class)->name('courses.status')->middleware('auth');
+
+Route::get('view-verfication/{course}', [UserController::class, 'create'])->middleware('auth')->name('courses.verification');
+
+Route::get('pdf-download/{course}', [CourseStatus::class, 'downloadcertificate'])->name('courses.pdf');
+
+Route::get('resource-download/{lesson}', [UserController::class, 'show'])->name('courses.resource');
+
+Route::get('mycourses', [UserController::class, 'index'])->name('mycourses.index');

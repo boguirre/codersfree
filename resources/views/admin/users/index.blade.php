@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CodersFree')
+@section('title', 'SLTC')
 
 @section('content_header')
     <h1>Lista de Usuarios</h1>

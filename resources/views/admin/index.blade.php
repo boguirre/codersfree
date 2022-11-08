@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'CodersFree')
+@section('title', 'SLTC')
 
 @section('content_header')
-    <h1>Coders Free</h1>
+    <h1>Plataforma SLTC</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Bienvenido al Panel de Control</p>
 @stop
 
 @section('css')

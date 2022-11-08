@@ -34,6 +34,12 @@ class Course extends Model
         }
     }
 
+    public function scopeSubcategory($query, $subcategory_id){
+        if($subcategory_id){
+            return $query->where('subcategory_id', $subcategory_id);
+        }
+    }
+
     public function scopeLevel($query, $level_id){
         if($level_id){
             return $query->where('level_id', $level_id);
@@ -83,6 +89,10 @@ class Course extends Model
 
     public function category(){
         return $this->belongsTo('App\Models\category');
+    }
+
+    public function subcategory(){
+        return $this->belongsTo('App\Models\Subcategory');
     }
 
     public function price(){
