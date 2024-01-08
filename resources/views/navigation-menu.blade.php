@@ -20,7 +20,7 @@
 
 @endphp
 
-<nav x-data="{ open: false }" class="border-b border-gray-100 shadow" style="background-color: #cac719">
+<nav x-data="{ open: false }" class="border-b border-gray-100 shadow">
 
     <!-- Primary Navigation Menu -->
     <div class="container">
